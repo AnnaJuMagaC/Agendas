@@ -1,45 +1,64 @@
 ﻿@model Agendas.Models.Medico
 
 @{
-	ViewData["Title"] = "Create";
+	ViewData["Title"] = "Cadastro de Médicos";
 }
 
-<h1>Create</h1>
+<div class="container mt-5">
+	<h1 class="text-center display-5" style="color: #19183B"> <i class="bi bi-person-add"></i> Cadastro de <span class="fw-bold">Médicos</span></h1>
 
-<h4>Medico</h4>
-<hr />
-<div class="row">
-	<div class="col-md-4">
-		<form asp-action="Create">
-			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			<div class="form-group">
-				<label asp-for="Nome" class="control-label"></label>
-				<input asp-for="Nome" class="form-control" />
-				<span asp-validation-for="Nome" class="text-danger"></span>
+	<form asp-action="Create">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+		<div class="row gap-3 mb-3" style="color: #19183B">
+			<div class="col-12">
+				<div class="form-group">
+					<label asp-for="Nome" class="control-label"></label>
+					<input asp-for="Nome" class="form-control" style="background-color: #A1C2BD" />
+					<span asp-validation-for="Nome" class="text-danger"></span>
+				</div>
 			</div>
-			<div class="form-group">
-				<label asp-for="CRM" class="control-label"></label>
-				<input asp-for="CRM" class="form-control" />
-				<span asp-validation-for="CRM" class="text-danger"></span>
+		</div>
+
+		<div class="row gap-3 mb-3" style="color: #19183B">
+			<div class="col-12 col-md">
+				<div class="form-group">
+					<label asp-for="CRM" class="control-label"></label>
+					<input asp-for="CRM" class="form-control" style="background-color: #A1C2BD" />
+					<span asp-validation-for="CRM" class="text-danger"></span>
+				</div>
 			</div>
-			<div class="form-group">
-				<label asp-for="Celular" class="control-label"></label>
-				<input asp-for="Celular" class="form-control" />
-				<span asp-validation-for="Celular" class="text-danger"></span>
+			<div class="col-12 col-md">
+				<div class="form-group">
+					<label asp-for="Celular" class="control-label"></label>
+					<input asp-for="Celular" class="form-control" style="background-color: #A1C2BD" />
+					<span asp-validation-for="Celular" class="text-danger"></span>
+				</div>
 			</div>
-			<div class="form-group">
-				<label asp-for="EspecialidadeId" class="control-label"></label>
-				<select asp-for="EspecialidadeId" class="form-control" asp-items="ViewBag.EspecialidadeId"></select>
+		</div>
+
+		<div class="row gap-3 mb-3" style="color: #19183B">
+			<div class="col-12">
+				<div class="form-group">
+					<label asp-for="EspecialidadeId" class="control-label"></label>
+					<select asp-for="EspecialidadeId" class="form-control" asp-items="ViewBag.EspecialidadeId" style="background-color: #A1C2BD"></select>
+					<span asp-validation-for="Especialidade" class="text-danger"></span>
+				</div>
 			</div>
-			<div class="form-group">
-				<input type="submit" value="Create" class="btn btn-primary" />
-			</div>
-		</form>
-	</div>
+		</div>
+	</form>
 </div>
 
-<div>
-	<a asp-action="Index">Back to List</a>
+<div class="row gap-3 mt-3 mb-3">
+	<div class="col-12 d-flex justify-content-between">
+		<div>
+			<a asp-action="Index" class="my-2" style="color: #19183B">Cancelar</a>
+		</div>
+
+		<div class="form-group">
+			<input type="submit" value="Create" class="btn my-2" style="background-color: #19183B; color: #E7F2EF; border: 1px #E7F2EF" />
+		</div>
+	</div>
 </div>
 
 @section Scripts {
