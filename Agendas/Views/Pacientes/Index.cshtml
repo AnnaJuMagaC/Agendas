@@ -1,65 +1,69 @@
 ﻿@model IEnumerable<Agendas.Models.Paciente>
 
 @{
-	ViewData["Title"] = "Index";
+	ViewData["Title"] = "Cadastro de Pacientes";
 }
 
-<h1>Index</h1>
+<div class="container">
+	<h1 style="color: #19183B" class="text-center display-5 mt-5 mb-3">Cadastro de<span class="fw-bold"> Pacientes</span></h1>
 
-<p>
-	<a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-	<thead>
-		<tr>
-			<th>
-				@Html.DisplayNameFor(model => model.Prontuario)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Nome)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.CPF)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.DataNascimento)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Celular)
-			</th>
-			<th>
-				@Html.DisplayNameFor(model => model.Email)
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
+	<p class="text-center">
+		<a asp-action="Create" style="color:#19183B; background-color : #708993; border-radius: 6px; border: 2px #19183B " class="btn"> <i class="bi bi-patch-plus"></i> Adicionar</a>
+	</p>
+	<table style="background-color: #708993" class="table">
+		<thead style="background-color: #708993">
 			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.Prontuario)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Nome)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.CPF)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.DataNascimento)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Celular)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Email)
-				</td>
-				<td>
-					<a asp-action="Edit" asp-route-id="@item.PacienteId">Edit</a> |
-					<a asp-action="Details" asp-route-id="@item.PacienteId">Details</a> |
-					<a asp-action="Delete" asp-route-id="@item.PacienteId">Delete</a>
-				</td>
+				<th>
+					Prontuário
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Nome)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.CPF)
+				</th>
+				<th>
+					Data Nascimento
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Celular)
+				</th>
+				<th>
+					Email
+				</th>
+				<th>
+					Ações
+				</th>
 			</tr>
-		}
-	</tbody>
-</table>
+		</thead>
+		<tbody style="background-color: #A1C2BD">
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Prontuario)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Nome)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.CPF)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.DataNascimento)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Celular)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Email)
+					</td>
+					<td>
+						<a class="btn btn-sm" style="border:2px solid #0A400C; color: #0A400C" asp-action="Edit" asp-route-id="@item.PacienteId"> <i class="bi bi-pencil-square"></i>Editar</a> |
+						<a class="btn btn-sm" style="border:2px solid #8C1007; color: #8C1007" asp-action="Delete" asp-route-id="@item.PacienteId"><i class="bi bi-trash"></i>Excluir</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
