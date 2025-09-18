@@ -1,35 +1,36 @@
 ﻿@model IEnumerable<Agendas.Models.Especialidade>
 
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Index";
 }
+<div class="container">
+	<h1 style="color: #19183B" class="text-center display-5 mt-5 mb-"><i class="bi bi-bandaid"></i> Cadastro de<span class="fw-bold"> Especialidades</span></h1>
 
-<h1>Index</h1>
+	<p class="text-center">
+		<a asp-action="Create" style="color:#19183B; background-color : #708993; border-radius: 6px; border: 2px #19183B " class="btn mb-2"> <i class="bi bi-patch-plus"></i> Adicionar</a>
+	</p>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.EspecialidadeId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.EspecialidadeId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.EspecialidadeId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+	<table style="background-color: #708993" class="table my-5">
+		<thead style="background-color: #708993">
+			<tr style="color:#19183B">
+				<th>
+					@Html.DisplayNameFor(model => model.Nome)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody style="background-color: #A1C2BD">
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Nome)
+					</td>
+					<td>
+						<a class="btn btn-sm" style="border:2px solid #0A400C; color: #0A400C" asp-action="Edit" asp-route-id="@item.EspecialidadeId"> <i class="bi bi-pencil-square"></i>Editar</a> |
+						<a class="btn btn-sm" style="border:2px solid #8C1007; color: #8C1007" asp-action="Delete" asp-route-id="@item.EspecialidadeId"><i class="bi bi-trash"></i>Excluir</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
